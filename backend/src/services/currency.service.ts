@@ -28,8 +28,8 @@ export class CurrencyService {
       from,
       to,
       amount,
-      converted_amount: amount * response.data['conversion_rate'],
-      conversion_rate: response.data['conversion_rate'],
+      convertedAmount: amount * response.data['conversion_rate'],
+      conversionRate: response.data['conversion_rate'],
     };
   }
 }

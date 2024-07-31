@@ -34,9 +34,9 @@ export class ConvertResponse {
 
   @IsDefined()
   @IsNumber()
-  converted_amount: number;
+  convertedAmount: number;
 
   @IsDefined()
   @IsNumber()
-  conversion_rate: number;
+  conversionRate: number;
 }
