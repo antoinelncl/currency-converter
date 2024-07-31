@@ -1,6 +1,7 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { Dropdown, SelectedOption } from "./CurrencyDropdown";
 import axios from "axios";
+import { currencyApiUrl } from "../constants/currency";
 
 export const CurrencyConverter: React.FC = () => {
   const [amount, setAmount] = useState<string>("");
@@ -16,7 +17,7 @@ export const CurrencyConverter: React.FC = () => {
       return;
     }
 
-    const response = await axios.get(`http://localhost:3020/currency/convert/${from}/${to}`);
+    const response = await axios.get(`${currencyApiUrl}/currency/convert/${from}/${to}`);
 
     const rate = response.data["conversionRate"]
     const convertionResult = amount * response.data["conversionRate"]

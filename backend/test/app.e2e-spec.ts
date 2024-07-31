@@ -17,13 +17,9 @@ describe('AppController (e2e)', () => {
 
   it('/ (GET)', () => {
     return request(app.getHttpServer())
-      .get('/currency/convert/EUR/GBP/800')
+      .get('/currency/convert/EUR/GBP')
       .expect(200)
       .expect({
-        from: 'EUR',
-        to: 'GBP',
-        amount: 800,
-        convertedAmount: 673.9200000000001,
         conversionRate: 0.8424,
       });
   });

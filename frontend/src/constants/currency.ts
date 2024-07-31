@@ -162,3 +162,5 @@ export const currency = [
   { label: "ZMW - Zambian Kwacha", value: "ZMW" },
   { label: "ZWL - Zimbabwean Dollar", value: "ZWL" }
 ];
+
+export const currencyApiUrl = process.env.CURRENCY_API ? `http://${process.env.CURRENCY_API}`: "http://localhost:3020"
