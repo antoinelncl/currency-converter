@@ -12,11 +12,7 @@ export class CurrencyService {
     private configService: ConfigService,
   ) {}
 
-  async getConvert(
-    from: Currency,
-    to: Currency,
-    amount: number,
-  ): Promise<ConvertResponse> {
+  async getConvert(from: Currency, to: Currency): Promise<ConvertResponse> {
     const apiKey = this.configService.get('EXCHANGERATE_API_KEY');
     const url = this.configService.get('EXCHANGERATE_API_URL');
 
@@ -25,10 +21,6 @@ export class CurrencyService {
     );
 
     return {
-      from,
-      to,
-      amount,
-      convertedAmount: amount * response.data['conversion_rate'],
       conversionRate: response.data['conversion_rate'],
     };
   }

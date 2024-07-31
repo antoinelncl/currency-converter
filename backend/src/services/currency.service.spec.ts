@@ -62,19 +62,10 @@ describe('CurrencyService', () => {
     it('should return a ConvertResponse', async () => {
       const from: Currency = 'USD';
       const to: Currency = 'EUR';
-      const amount = 100;
 
-      const result: ConvertResponse = await service.getConvert(
-        from,
-        to,
-        amount,
-      );
+      const result: ConvertResponse = await service.getConvert(from, to);
 
       expect(result).toEqual({
-        from,
-        to,
-        amount,
-        convertedAmount: amount * 0.85,
         conversionRate: 0.85,
       });
     });

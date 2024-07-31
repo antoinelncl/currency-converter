@@ -11,10 +11,6 @@ describe('CurrencyController', () => {
   beforeEach(async () => {
     const mockCurrencyService = {
       getConvert: jest.fn().mockResolvedValue({
-        from: 'USD',
-        to: 'EUR',
-        amount: 100,
-        convertedAmount: 85,
         conversionRate: 0.85,
       }),
     };
@@ -41,18 +37,13 @@ describe('CurrencyController', () => {
     it('should call currencyService.getConvert and return the result', async () => {
       const from: Currency = 'USD';
       const to: Currency = 'EUR';
-      const amount = 100;
       const result: ConvertResponse = {
-        from: 'USD',
-        to: 'EUR',
-        amount: 100,
-        convertedAmount: 85,
         conversionRate: 0.85,
       };
 
-      const response = await currencyController.getConvert(from, to, amount);
+      const response = await currencyController.getConvert(from, to);
       expect(response).toEqual(result);
-      expect(currencyService.getConvert).toHaveBeenCalledWith(from, to, amount);
+      expect(currencyService.getConvert).toHaveBeenCalledWith(from, to);
     });
   });
 });
